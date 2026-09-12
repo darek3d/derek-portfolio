@@ -110,6 +110,8 @@ h1 { max-width: 840px; font-size: clamp(3rem, 7vw, 6.3rem); line-height: .96; le
 .site-footer { border-top: 1px solid var(--line); padding: 26px 0; color: var(--muted); font-size: .88rem; }
 .footer-inner { display: flex; justify-content: space-between; gap: 20px; }
 
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .5s ease, transform .5s ease; }
+.reveal.is-visible { opacity: 1; transform: none; }
 :focus-visible { outline: 3px solid #4d8e7d; outline-offset: 3px; }
 
 @media (max-width: 900px) {
@@ -143,4 +145,5 @@ h1 { max-width: 840px; font-size: clamp(3rem, 7vw, 6.3rem); line-height: .96; le
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .reveal { opacity: 1; transform: none; }
 }
