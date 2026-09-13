@@ -4,10 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Derek Wydra builds digital growth systems across websites, acquisition, automation, analytics, subscriptions and AI-assisted development.">
-  <meta name="theme-color" content="#f5f3ed">
+  <meta name="theme-color" content="#f7f6f2">
   <title>Derek Wydra — Web, Growth & Technical Marketing Systems</title>
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet" href="css/styles.css">
-  <script src="js/main.js" defer></script>
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+  <script type="module" src="js/main.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -27,48 +30,36 @@
   <main id="main">
     <section class="hero" id="top">
       <div class="shell hero-grid">
-        <div class="hero-copy">
+        <div class="hero-copy" data-motion="hero">
           <p class="eyebrow">Web · Growth · Marketing systems</p>
           <h1>I build digital growth systems that turn traffic into customers.</h1>
           <p class="hero-lede">15+ years building and operating websites, subscription products and acquisition systems — from WordPress and technical SEO to React, APIs, automation, analytics, payments and AI-assisted development.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#work">View selected work</a>
-            <a class="button button-secondary" href="mailto:derekwydra@gmail.com">Email Derek</a>
+            <a class="button button-primary" href="#work">View selected work <i data-lucide="arrow-down-right" aria-hidden="true"></i></a>
+            <a class="button button-secondary" href="mailto:derekwydra@gmail.com">Email Derek <i data-lucide="mail" aria-hidden="true"></i></a>
           </div>
           <p class="hero-meta">Oshawa, Ontario · derekwydra@gmail.com</p>
         </div>
 
-        <aside class="hero-proof" aria-label="Selected results">
-          <div class="metric">
-            <strong>44K–49K</strong>
-            <span>monthly Google organic clicks at peak</span>
-          </div>
-          <div class="metric">
-            <strong>99K</strong>
-            <span>annual pageviews from an AI search utility in 2025</span>
-          </div>
-          <div class="metric">
-            <strong>+62%</strong>
-            <span>email opt-in lift in one CRO experiment</span>
-          </div>
-          <div class="metric">
-            <strong>3–5K</strong>
-            <span>paying customers supported across earlier digital products</span>
-          </div>
+        <aside class="hero-proof" aria-label="Selected results" data-motion="metrics">
+          <div class="metric"><strong>44K–49K</strong><span>monthly Google organic clicks at peak</span></div>
+          <div class="metric"><strong>99K</strong><span>annual pageviews from an AI search utility in 2025</span></div>
+          <div class="metric"><strong>+62%</strong><span>email opt-in lift in one CRO experiment</span></div>
+          <div class="metric"><strong>3–5K</strong><span>paying customers supported across earlier digital products</span></div>
         </aside>
       </div>
     </section>
 
     <section class="lane-strip" aria-label="Areas of work">
       <div class="shell lane-grid">
-        <div><span>01</span><strong>Acquire</strong><p>SEO, paid acquisition, landing pages and attribution.</p></div>
-        <div><span>02</span><strong>Convert</strong><p>CRO, onboarding, checkout and subscription funnels.</p></div>
-        <div><span>03</span><strong>Automate</strong><p>Email follow-up, lifecycle workflows and marketing systems.</p></div>
-        <div><span>04</span><strong>Integrate</strong><p>APIs, webhooks, payments, data flows and troubleshooting.</p></div>
+        <div class="lane-card"><i data-lucide="search" aria-hidden="true"></i><span>01</span><strong>Acquire</strong><p>SEO, paid acquisition, landing pages and attribution.</p></div>
+        <div class="lane-card"><i data-lucide="mouse-pointer-click" aria-hidden="true"></i><span>02</span><strong>Convert</strong><p>CRO, onboarding, checkout and subscription funnels.</p></div>
+        <div class="lane-card"><i data-lucide="workflow" aria-hidden="true"></i><span>03</span><strong>Automate</strong><p>Email follow-up, lifecycle workflows and marketing systems.</p></div>
+        <div class="lane-card"><i data-lucide="plug-zap" aria-hidden="true"></i><span>04</span><strong>Integrate</strong><p>APIs, webhooks, payments, data flows and troubleshooting.</p></div>
       </div>
     </section>
 
-    <section class="section section-intro" id="work">
+    <section class="section section-intro" id="work" data-reveal>
       <div class="shell">
         <p class="eyebrow">Selected work</p>
         <div class="section-heading-row">
@@ -78,7 +69,7 @@
       </div>
     </section>
 
-    <section class="project project-featured">
+    <section class="project project-featured" data-reveal>
       <div class="shell">
         <div class="project-header">
           <div>
@@ -86,7 +77,7 @@
             <h2>Braintoon Web</h2>
             <p class="project-kicker">Subscription product · acquisition funnel · analytics</p>
           </div>
-          <a class="text-link" href="https://braintoonapp.com/" target="_blank" rel="noreferrer">Visit Braintoon <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="https://braintoonapp.com/" target="_blank" rel="noreferrer">Visit Braintoon <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
         </div>
 
         <div class="plain-tech-grid">
@@ -102,21 +93,21 @@
         </div>
 
         <div class="proof-row">
-          <div class="proof-card"><strong>+62%</strong><span>email opt-in improvement in one CRO test</span></div>
-          <div class="proof-card"><strong>UTM → signup</strong><span>campaign attribution carried into the conversion funnel</span></div>
-          <div class="proof-card"><strong>Product + marketing</strong><span>accounts, payments, analytics and lifecycle follow-up connected in one flow</span></div>
+          <div class="proof-card"><i data-lucide="trending-up" aria-hidden="true"></i><strong>+62%</strong><span>email opt-in improvement in one CRO test</span></div>
+          <div class="proof-card"><i data-lucide="route" aria-hidden="true"></i><strong>UTM → signup</strong><span>campaign attribution carried into the conversion funnel</span></div>
+          <div class="proof-card"><i data-lucide="blocks" aria-hidden="true"></i><strong>Product + marketing</strong><span>accounts, payments, analytics and lifecycle follow-up connected in one flow</span></div>
         </div>
 
         <div class="gallery gallery-web" aria-label="Braintoon web screenshot placeholders">
-          <div class="shot shot-wide"><div class="shot-label"><span>Braintoon Web</span><strong>Homepage / landing page</strong></div></div>
-          <div class="shot"><div class="shot-label"><span>Braintoon Web</span><strong>Book / player experience</strong></div></div>
-          <div class="shot"><div class="shot-label"><span>Braintoon Web</span><strong>Quiz flow</strong></div></div>
-          <div class="shot"><div class="shot-label"><span>Braintoon Web</span><strong>Signup / paywall</strong></div></div>
+          <div class="shot shot-wide browser-frame"><div class="browser-bar"><span></span><span></span><span></span></div><div class="shot-label"><span>Braintoon Web</span><strong>Homepage / landing page</strong></div></div>
+          <div class="shot browser-frame"><div class="browser-bar"><span></span><span></span><span></span></div><div class="shot-label"><span>Braintoon Web</span><strong>Book / player experience</strong></div></div>
+          <div class="shot browser-frame"><div class="browser-bar"><span></span><span></span><span></span></div><div class="shot-label"><span>Braintoon Web</span><strong>Quiz flow</strong></div></div>
+          <div class="shot browser-frame"><div class="browser-bar"><span></span><span></span><span></span></div><div class="shot-label"><span>Braintoon Web</span><strong>Signup / paywall</strong></div></div>
         </div>
       </div>
     </section>
 
-    <section class="project project-alt">
+    <section class="project project-alt" data-reveal>
       <div class="shell">
         <div class="project-header">
           <div>
@@ -139,16 +130,16 @@
         </div>
 
         <div class="phone-gallery" aria-label="Braintoon mobile screenshot placeholders">
-          <div class="phone-shot"><div class="phone-screen"><span>Library / home</span></div></div>
-          <div class="phone-shot"><div class="phone-screen"><span>Book detail</span></div></div>
-          <div class="phone-shot"><div class="phone-screen"><span>Animated player</span></div></div>
-          <div class="phone-shot"><div class="phone-screen"><span>Infographic / zoom</span></div></div>
-          <div class="phone-shot"><div class="phone-screen"><span>Subscription / paywall</span></div></div>
+          <div class="phone-shot"><div class="phone-notch"></div><div class="phone-screen"><span>Library / home</span></div></div>
+          <div class="phone-shot"><div class="phone-notch"></div><div class="phone-screen"><span>Book detail</span></div></div>
+          <div class="phone-shot"><div class="phone-notch"></div><div class="phone-screen"><span>Animated player</span></div></div>
+          <div class="phone-shot"><div class="phone-notch"></div><div class="phone-screen"><span>Infographic / zoom</span></div></div>
+          <div class="phone-shot"><div class="phone-notch"></div><div class="phone-screen"><span>Subscription / paywall</span></div></div>
         </div>
       </div>
     </section>
 
-    <section class="project preview-project" id="b2b-preview">
+    <section class="project preview-project" id="b2b-preview" data-reveal>
       <div class="shell">
         <div class="preview-banner"><strong>Private preview</strong><span>Designed now for motivation and planning. Hide this section before using the portfolio in applications until the project is real and live.</span></div>
 
@@ -158,7 +149,7 @@
             <h2>Braintoon for Business</h2>
             <p class="project-kicker">B2B SaaS · CRM · GTM automation</p>
           </div>
-          <span class="status-pill">In development</span>
+          <span class="status-pill"><i data-lucide="construction" aria-hidden="true"></i> In development</span>
         </div>
 
         <div class="plain-tech-grid">
@@ -174,25 +165,18 @@
         </div>
 
         <div class="gtm-flow" aria-label="Planned B2B GTM flow">
-          <div><span>1</span><strong>Define ICP</strong><small>L&D, enablement and people leaders</small></div>
-          <i>→</i>
-          <div><span>2</span><strong>Enrich</strong><small>Company and contact research</small></div>
-          <i>→</i>
-          <div><span>3</span><strong>CRM</strong><small>Accounts, contacts and routing</small></div>
-          <i>→</i>
-          <div><span>4</span><strong>Engage</strong><small>Outbound + website signals</small></div>
-          <i>→</i>
-          <div><span>5</span><strong>Measure</strong><small>Replies, meetings and pipeline</small></div>
+          <div><i data-lucide="target" aria-hidden="true"></i><span>1</span><strong>Define ICP</strong><small>L&D, enablement and people leaders</small></div><b aria-hidden="true">→</b>
+          <div><i data-lucide="sparkles" aria-hidden="true"></i><span>2</span><strong>Enrich</strong><small>Company and contact research</small></div><b aria-hidden="true">→</b>
+          <div><i data-lucide="database" aria-hidden="true"></i><span>3</span><strong>CRM</strong><small>Accounts, contacts and routing</small></div><b aria-hidden="true">→</b>
+          <div><i data-lucide="send" aria-hidden="true"></i><span>4</span><strong>Engage</strong><small>Outbound + website signals</small></div><b aria-hidden="true">→</b>
+          <div><i data-lucide="chart-no-axes-combined" aria-hidden="true"></i><span>5</span><strong>Measure</strong><small>Replies, meetings and pipeline</small></div>
         </div>
 
-        <div class="preview-goal">
-          <span>Initial validation goal</span>
-          <strong>Get at least one real conversation with a relevant B2B decision maker and document the full path from prospecting to CRM to engagement.</strong>
-        </div>
+        <div class="preview-goal"><span>Initial validation goal</span><strong>Get at least one real conversation with a relevant B2B decision maker and document the full path from prospecting to CRM to engagement.</strong></div>
       </div>
     </section>
 
-    <section class="project">
+    <section class="project" data-reveal>
       <div class="shell">
         <div class="project-header">
           <div>
@@ -200,7 +184,7 @@
             <h2>Growth Summary</h2>
             <p class="project-kicker">WordPress · SEO · membership & lifecycle</p>
           </div>
-          <a class="text-link" href="https://growthsummary.com/" target="_blank" rel="noreferrer">Visit Growth Summary <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="https://growthsummary.com/" target="_blank" rel="noreferrer">Visit Growth Summary <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
         </div>
 
         <div class="plain-tech-grid">
@@ -216,22 +200,22 @@
         </div>
 
         <div class="proof-row">
-          <div class="proof-card"><strong>208K</strong><span>annual visitors during a strong year</span></div>
-          <div class="proof-card"><strong>342K</strong><span>annual pageviews</span></div>
-          <div class="proof-card"><strong>90%+</strong><span>of acquisition from organic search</span></div>
+          <div class="proof-card"><i data-lucide="users" aria-hidden="true"></i><strong>208K</strong><span>annual visitors during a strong year</span></div>
+          <div class="proof-card"><i data-lucide="eye" aria-hidden="true"></i><strong>342K</strong><span>annual pageviews</span></div>
+          <div class="proof-card"><i data-lucide="search-check" aria-hidden="true"></i><strong>90%+</strong><span>of acquisition from organic search</span></div>
         </div>
 
         <p class="project-note">Custom development included WordPress themes, plugins and Gutenberg blocks — including an editor-configurable interactive quiz block with front-end behavior and server-side rendering.</p>
 
         <div class="gallery gallery-growth" aria-label="Growth Summary screenshot placeholders">
-          <div class="shot shot-wide"><div class="shot-label"><span>Growth Summary</span><strong>Representative content / book page</strong></div></div>
-          <div class="shot"><div class="shot-label"><span>Growth Summary</span><strong>Homepage or category view</strong></div></div>
-          <div class="shot"><div class="shot-label"><span>Gutenberg</span><strong>Interactive quiz block</strong></div></div>
+          <div class="shot shot-wide browser-frame"><div class="browser-bar"><span></span><span></span><span></span></div><div class="shot-label"><span>Growth Summary</span><strong>Representative content / book page</strong></div></div>
+          <div class="shot browser-frame"><div class="browser-bar"><span></span><span></span><span></span></div><div class="shot-label"><span>Growth Summary</span><strong>Homepage or category view</strong></div></div>
+          <div class="shot browser-frame"><div class="browser-bar"><span></span><span></span><span></span></div><div class="shot-label"><span>Gutenberg</span><strong>Interactive quiz block</strong></div></div>
         </div>
       </div>
     </section>
 
-    <section class="project project-alt">
+    <section class="project project-alt" data-reveal>
       <div class="shell">
         <div class="project-header">
           <div>
@@ -239,7 +223,7 @@
             <h2>AI Book Finder</h2>
             <p class="project-kicker">Search opportunity → product → API → traffic</p>
           </div>
-          <a class="text-link" href="https://growthsummary.com/book-finder/" target="_blank" rel="noreferrer">View tool <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="https://growthsummary.com/book-finder/" target="_blank" rel="noreferrer">View tool <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
         </div>
 
         <div class="book-finder-grid">
@@ -247,16 +231,14 @@
             <h3>What it does</h3>
             <p class="project-lede">People often remember a book’s plot but not its title. I found meaningful search demand for that problem, then built a small AI-powered tool to answer the query directly instead of publishing another article.</p>
             <div class="big-result"><strong>~99,000</strong><span>pageviews in 2025</span></div>
-            <div class="process" aria-label="Project process">
-              <span>Search research</span><i aria-hidden="true">→</i><span>Product idea</span><i aria-hidden="true">→</i><span>API build</span><i aria-hidden="true">→</i><span>Measure</span>
-            </div>
+            <div class="process" aria-label="Project process"><span>Search research</span><i aria-hidden="true">→</i><span>Product idea</span><i aria-hidden="true">→</i><span>API build</span><i aria-hidden="true">→</i><span>Measure</span></div>
           </div>
-          <div class="shot shot-tool"><div class="shot-label"><span>AI Book Finder</span><strong>Interactive tool screenshot</strong></div></div>
+          <div class="shot shot-tool browser-frame"><div class="browser-bar"><span></span><span></span><span></span></div><div class="shot-label"><span>AI Book Finder</span><strong>Interactive tool screenshot</strong></div></div>
         </div>
       </div>
     </section>
 
-    <section class="systems section" id="systems">
+    <section class="systems section" id="systems" data-reveal>
       <div class="shell">
         <p class="eyebrow">Systems & integrations</p>
         <div class="section-heading-row systems-heading">
@@ -265,12 +247,12 @@
         </div>
 
         <div class="system-flow" aria-label="Typical system flow">
-          <div><strong>Traffic</strong><span>SEO · Ads · UTM</span></div><i>→</i>
-          <div><strong>Capture</strong><span>Forms · Signup</span></div><i>→</i>
-          <div><strong>Data</strong><span>Supabase · CRM</span></div><i>→</i>
-          <div><strong>Automation</strong><span>Email · Lifecycle</span></div><i>→</i>
-          <div><strong>Revenue</strong><span>Stripe · RevenueCat</span></div><i>→</i>
-          <div><strong>Measure</strong><span>PostHog · GA4</span></div>
+          <div><i data-lucide="megaphone" aria-hidden="true"></i><strong>Traffic</strong><span>SEO · Ads · UTM</span></div><b>→</b>
+          <div><i data-lucide="file-input" aria-hidden="true"></i><strong>Capture</strong><span>Forms · Signup</span></div><b>→</b>
+          <div><i data-lucide="database" aria-hidden="true"></i><strong>Data</strong><span>Supabase · CRM</span></div><b>→</b>
+          <div><i data-lucide="workflow" aria-hidden="true"></i><strong>Automation</strong><span>Email · Lifecycle</span></div><b>→</b>
+          <div><i data-lucide="credit-card" aria-hidden="true"></i><strong>Revenue</strong><span>Stripe · RevenueCat</span></div><b>→</b>
+          <div><i data-lucide="chart-no-axes-combined" aria-hidden="true"></i><strong>Measure</strong><span>PostHog · GA4</span></div>
         </div>
 
         <div class="system-chip-grid" aria-label="Platforms and tools">
@@ -280,36 +262,36 @@
       </div>
     </section>
 
-    <section class="technical-proof">
+    <section class="technical-proof" data-reveal>
       <div class="shell technical-grid">
         <div>
           <p class="eyebrow">Technical troubleshooting</p>
           <h2>When integrations fail, I’m comfortable going below the UI.</h2>
         </div>
         <div class="technical-list">
-          <div><strong>APIs & authentication</strong><p>REST requests, headers, credentials, HTTP status codes and JSON payloads.</p></div>
-          <div><strong>Webhooks & state</strong><p>Event payloads, retries, subscription/entitlement state and downstream updates.</p></div>
-          <div><strong>Logs & testing</strong><p>Application logs, Postman, sandbox vs production environments and structured reproduction.</p></div>
-          <div><strong>Shipping & deployment</strong><p>Git/GitHub, pull requests, CI/CD, Vercel and app-store release workflows.</p></div>
+          <div><i data-lucide="key-round" aria-hidden="true"></i><strong>APIs & authentication</strong><p>REST requests, headers, credentials, HTTP status codes and JSON payloads.</p></div>
+          <div><i data-lucide="webhook" aria-hidden="true"></i><strong>Webhooks & state</strong><p>Event payloads, retries, subscription/entitlement state and downstream updates.</p></div>
+          <div><i data-lucide="terminal-square" aria-hidden="true"></i><strong>Logs & testing</strong><p>Application logs, Postman, sandbox vs production environments and structured reproduction.</p></div>
+          <div><i data-lucide="git-pull-request-arrow" aria-hidden="true"></i><strong>Shipping & deployment</strong><p>Git/GitHub, pull requests, CI/CD, Vercel and app-store release workflows.</p></div>
         </div>
       </div>
     </section>
 
-    <section class="section capabilities" id="capabilities">
+    <section class="section capabilities" id="capabilities" data-reveal>
       <div class="shell">
         <p class="eyebrow">Capabilities</p>
         <div class="capability-grid">
-          <div><h3>Acquire</h3><p>Technical SEO, search strategy, landing pages, Meta Ads, UTMs and attribution.</p></div>
-          <div><h3>Convert</h3><p>CRO, A/B testing, signup flows, checkout, subscriptions and funnel analysis.</p></div>
-          <div><h3>Automate</h3><p>Email follow-up, lifecycle workflows, HubSpot hands-on experience, AWeber, Brevo and Resend.</p></div>
-          <div><h3>Integrate</h3><p>REST APIs, webhooks, JSON, Supabase, Stripe, RevenueCat and third-party SDKs.</p></div>
-          <div><h3>Build</h3><p>WordPress, PHP, JavaScript, Gutenberg, React, Next.js, React Native and responsive UI.</p></div>
-          <div><h3>Measure & troubleshoot</h3><p>GA4, Search Console, PostHog, logs, Postman, debugging and root-cause analysis.</p></div>
+          <div><i data-lucide="search" aria-hidden="true"></i><h3>Acquire</h3><p>Technical SEO, search strategy, landing pages, Meta Ads, UTMs and attribution.</p></div>
+          <div><i data-lucide="mouse-pointer-click" aria-hidden="true"></i><h3>Convert</h3><p>CRO, A/B testing, signup flows, checkout, subscriptions and funnel analysis.</p></div>
+          <div><i data-lucide="workflow" aria-hidden="true"></i><h3>Automate</h3><p>Email follow-up, lifecycle workflows, HubSpot hands-on experience, AWeber, Brevo and Resend.</p></div>
+          <div><i data-lucide="plug-zap" aria-hidden="true"></i><h3>Integrate</h3><p>REST APIs, webhooks, JSON, Supabase, Stripe, RevenueCat and third-party SDKs.</p></div>
+          <div><i data-lucide="code-2" aria-hidden="true"></i><h3>Build</h3><p>WordPress, PHP, JavaScript, Gutenberg, React, Next.js, React Native and responsive UI.</p></div>
+          <div><i data-lucide="wrench" aria-hidden="true"></i><h3>Measure & troubleshoot</h3><p>GA4, Search Console, PostHog, logs, Postman, debugging and root-cause analysis.</p></div>
         </div>
       </div>
     </section>
 
-    <section class="closing">
+    <section class="closing" data-reveal>
       <div class="shell closing-inner">
         <div>
           <p class="eyebrow">Contact</p>
@@ -317,7 +299,7 @@
           <p>I'm based in Oshawa, Ontario and open to web, growth, CRM/marketing automation, implementation and adjacent technical marketing opportunities.</p>
         </div>
         <div class="closing-actions">
-          <a class="button button-primary" href="mailto:derekwydra@gmail.com">Email Derek</a>
+          <a class="button button-primary" href="mailto:derekwydra@gmail.com">Email Derek <i data-lucide="mail" aria-hidden="true"></i></a>
           <a class="button button-secondary disabled" href="#" aria-disabled="true" title="Resume link will be added before launch">Resume coming soon</a>
         </div>
       </div>
