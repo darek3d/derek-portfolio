@@ -1,0 +1,90 @@
+/* Structural portfolio revision: capability rail, cobalt work intro, sticky project nav, dark systems. */
+
+.hero-side { display: grid; gap: 20px; }
+.profile-row { display: grid; grid-template-columns: 112px 1fr; gap: 18px; align-items: center; }
+.profile-photo { width: 112px; height: 112px; object-fit: cover; border-radius: 50%; border: 4px solid rgba(255,255,255,.88); box-shadow: 0 18px 44px rgba(18,24,22,.16); }
+.profile-note { color: var(--muted); margin: 0; font-size: .95rem; }
+.hero-result-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+.hero-result-card { min-height: 160px; padding: 18px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.65); display: flex; flex-direction: column; gap: 10px; box-shadow: 0 10px 28px rgba(18,24,22,.05); }
+.hero-result-card svg { color: var(--accent); width: 20px; height: 20px; }
+.hero-result-card strong { margin-top: auto; font-size: 1.55rem; letter-spacing: -.04em; }
+.hero-result-card span { color: var(--muted); font-size: .82rem; line-height: 1.35; }
+
+.capability-rail-section { position: relative; overflow: clip; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: #fffefa; padding: 0 0 14px; }
+.capability-rail-viewport { overflow-x: auto; scrollbar-width: none; }
+.capability-rail-viewport::-webkit-scrollbar { display: none; }
+.capability-rail-track { width: max-content; display: flex; will-change: transform; transform: translate3d(0,0,0); }
+.rail-card { width: min(330px, 78vw); min-height: 230px; padding: 30px 28px; border-right: 1px solid var(--line); display: flex; flex-direction: column; position: relative; background: rgba(255,255,255,.58); }
+.rail-card:first-child { margin-left: max(20px, calc((100vw - 1180px) / 2)); border-left: 1px solid var(--line); }
+.rail-card:last-child { margin-right: max(20px, calc((100vw - 1180px) / 2)); }
+.rail-card svg { color: var(--accent); width: 24px; height: 24px; margin-bottom: 36px; }
+.rail-card > span { position: absolute; top: 24px; right: 24px; color: #9da5a1; font-size: 2.15rem; font-weight: 800; letter-spacing: -.06em; opacity: .34; }
+.rail-card strong { font-size: 1.22rem; margin-bottom: 8px; }
+.rail-card p { color: var(--muted); margin: 0; font-size: .94rem; max-width: 250px; }
+.rail-progress { width: min(calc(100% - 40px),1180px); height: 2px; background: #dfe3df; margin: 14px auto 0; overflow: hidden; }
+.rail-progress span { display: block; width: 100%; height: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left center; }
+
+.work-zone { position: relative; }
+.work-intro { background: var(--accent); color: #fff; padding: 96px 0 84px; }
+.work-intro .eyebrow { color: rgba(255,255,255,.72); }
+.work-intro-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 70px; align-items: end; }
+.work-intro h2 { margin: 0; max-width: 840px; font-size: clamp(3rem,6.2vw,5.8rem); line-height: .94; letter-spacing: -.06em; }
+.work-intro-grid > p { margin: 0 0 8px; color: rgba(255,255,255,.78); font-size: 1.08rem; max-width: 500px; }
+
+.project-nav { position: sticky; top: 72px; z-index: 28; background: rgba(255,255,255,.93); backdrop-filter: blur(18px) saturate(135%); border-bottom: 1px solid var(--line); box-shadow: 0 7px 24px rgba(18,24,22,.05); }
+.project-nav-inner { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; padding-top: 8px; padding-bottom: 8px; }
+.project-nav-inner::-webkit-scrollbar { display: none; }
+.project-nav a { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 13px; border-radius: 999px; text-decoration: none; color: #66706b; font-size: .86rem; font-weight: 690; transition: color .18s ease, background .18s ease, transform .18s ease; }
+.project-nav a span { font-size: .68rem; color: #9aa29f; }
+.project-nav a:hover { color: var(--accent); background: var(--accent-soft); }
+.project-nav a.is-active { color: #fff; background: var(--accent); box-shadow: 0 6px 18px rgba(36,87,255,.18); }
+.project-nav a.is-active span { color: rgba(255,255,255,.7); }
+
+.project[id] { scroll-margin-top: 136px; }
+
+.systems-dark { background: #10162a !important; color: #f8f9ff; border-top: 0; }
+.systems-dark .eyebrow { color: #87a6ff; }
+.systems-dark .section-heading-row p, .systems-dark .system-note { color: #aeb8cf; }
+.systems-dark .system-flow > div, .systems-dark .system-node { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.13); }
+.systems-dark .system-node strong { color: #fff; }
+.systems-dark .system-node span { color: #aeb8cf; }
+.systems-dark .system-node svg { color: #6f91ff; }
+.systems-dark .system-flow b { color: #6f91ff; }
+.systems-dark .system-chip-grid span { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.12); color: #e8ecf7; }
+
+/* The old capabilities section has intentionally been removed from the markup. */
+
+@media (min-width: 901px) {
+  .hero-grid { grid-template-columns: minmax(0,1.15fr) minmax(400px,.85fr); }
+  .capability-rail-section { padding-top: 4px; }
+}
+
+@media (max-width: 1000px) {
+  .hero-result-grid { grid-template-columns: 1fr; }
+  .hero-result-card { min-height: 116px; }
+  .work-intro-grid { grid-template-columns: 1fr; gap: 32px; }
+  .work-intro-grid > p { max-width: 680px; }
+}
+
+@media (max-width: 900px) {
+  .profile-row { grid-template-columns: 88px 1fr; }
+  .profile-photo { width: 88px; height: 88px; }
+  .hero-result-grid { grid-template-columns: repeat(3,1fr); }
+  .hero-result-card { min-height: 145px; }
+  .project-nav { top: 62px; }
+  .rail-card { width: min(300px,82vw); }
+}
+
+@media (max-width: 680px) {
+  .hero-result-grid { grid-template-columns: 1fr; }
+  .hero-result-card { min-height: 110px; }
+  .work-intro { padding: 72px 0 64px; }
+  .work-intro h2 { font-size: clamp(2.7rem,13vw,4.4rem); }
+  .project-nav a { padding: 0 11px; font-size: .8rem; }
+  .rail-card { width: 78vw; min-height: 215px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .capability-rail-track { transform: none !important; }
+  .rail-progress span { transform: none !important; }
+}
