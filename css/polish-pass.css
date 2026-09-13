@@ -1,0 +1,188 @@
+/* Portfolio polish pass: typography, hero balance, capability rail spacing, nav refinement. */
+
+/* Calmer, more readable display typography. */
+h1 {
+  font-size: clamp(2.8rem, 5.7vw, 5.35rem) !important;
+  line-height: .99 !important;
+  letter-spacing: -.042em !important;
+  max-width: 850px !important;
+}
+
+.section-heading-row h2,
+.closing h2,
+.technical-grid h2,
+.work-intro h2 {
+  font-size: clamp(2.15rem, 4.25vw, 3.8rem) !important;
+  line-height: 1.02 !important;
+  letter-spacing: -.035em !important;
+}
+
+.project-header h2 {
+  font-size: clamp(2.3rem, 4.7vw, 4.15rem) !important;
+  line-height: .99 !important;
+  letter-spacing: -.04em !important;
+}
+
+.big-result strong {
+  letter-spacing: -.045em !important;
+}
+
+/* Navigation: make it feel intentional rather than placeholder-like. */
+.site-nav {
+  align-items: center;
+  gap: 8px !important;
+}
+.site-nav a {
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 680;
+}
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  background: var(--accent-soft);
+  text-decoration: none;
+}
+.site-nav a.nav-cta {
+  background: var(--accent);
+  color: #fff !important;
+  padding-inline: 15px;
+  box-shadow: 0 7px 20px rgba(36,87,255,.16);
+}
+.site-nav a.nav-cta:hover,
+.site-nav a.nav-cta:focus-visible {
+  background: var(--accent-strong);
+}
+
+/* Hero: align both columns at the top and make the right rail feel deliberate. */
+.hero-grid {
+  align-items: start !important;
+}
+.hero-side {
+  align-self: start;
+  padding-top: 6px;
+}
+.hero-result-grid {
+  grid-template-columns: 1fr !important;
+  gap: 11px !important;
+}
+.hero-result-card {
+  min-height: 0 !important;
+  padding: 16px 18px !important;
+  display: grid !important;
+  grid-template-columns: 42px 112px 1fr;
+  align-items: center;
+  gap: 12px !important;
+}
+.hero-result-card svg {
+  width: 20px;
+  height: 20px;
+}
+.hero-result-card strong {
+  margin-top: 0 !important;
+  font-size: 1.42rem !important;
+  letter-spacing: -.025em !important;
+}
+.hero-result-card span {
+  font-size: .88rem !important;
+  line-height: 1.4 !important;
+}
+
+/* Profile identity gets moved into the left hero by JS; this styles that block. */
+.hero-identity {
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  gap: 15px;
+  align-items: center;
+  margin: 25px 0 12px;
+  max-width: 520px;
+}
+.hero-identity .profile-photo {
+  width: 76px;
+  height: 76px;
+  border-width: 3px;
+  box-shadow: 0 12px 30px rgba(18,24,22,.13);
+}
+.hero-identity-copy strong {
+  display: block;
+  font-size: 1.06rem;
+  margin-bottom: 3px;
+}
+.hero-identity-copy span,
+.hero-identity-copy a {
+  display: block;
+  color: var(--muted);
+  font-size: .9rem;
+  text-decoration: none;
+}
+.hero-identity-copy a:hover { color: var(--accent); }
+.hero-side .profile-row { display: none !important; }
+.hero-side::before {
+  content: "Selected results";
+  display: block;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: .13em;
+  font-size: .72rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+/* Capability rail: real lead-in/lead-out space, gentler movement and better pacing. */
+.capability-rail-section {
+  padding-top: 24px !important;
+  padding-bottom: 26px !important;
+}
+.capability-rail-track::before,
+.capability-rail-track::after {
+  content: "";
+  flex: 0 0 clamp(54px, 13vw, 190px);
+}
+.rail-card:first-child {
+  margin-left: 0 !important;
+}
+.rail-card:last-child {
+  margin-right: 0 !important;
+}
+.rail-card {
+  width: min(315px, 76vw) !important;
+  min-height: 218px !important;
+}
+.rail-card svg { margin-bottom: 30px !important; }
+
+/* Project nav active state: slightly quieter and easier to scan. */
+.project-nav a.is-active {
+  box-shadow: 0 5px 16px rgba(36,87,255,.14) !important;
+}
+.project-nav-inner {
+  scroll-padding-inline: 20px;
+}
+
+@media (max-width: 900px) {
+  h1 {
+    font-size: clamp(2.6rem, 10vw, 4.25rem) !important;
+    letter-spacing: -.036em !important;
+  }
+  .hero-result-card {
+    grid-template-columns: 38px 100px 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .hero-identity {
+    grid-template-columns: 64px 1fr;
+  }
+  .hero-identity .profile-photo {
+    width: 64px;
+    height: 64px;
+  }
+  .hero-result-card {
+    grid-template-columns: 36px 1fr;
+  }
+  .hero-result-card span {
+    grid-column: 2;
+  }
+  .capability-rail-track::before,
+  .capability-rail-track::after {
+    flex-basis: 22px;
+  }
+}
