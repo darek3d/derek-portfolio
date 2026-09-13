@@ -66,7 +66,10 @@ function refreshHeroCopy() {
   if (headline) headline.textContent = 'I build digital growth systems that turn attention into customers.';
 
   if (lede) {
-    lede.textContent = '15+ years building and growing digital products through organic acquisition, conversion optimization, marketing automation and subscription business models. I work across the customer journey to improve how prospects are acquired, nurtured, converted and retained — connecting web experiences, CMS and CRM systems, workflow automation, analytics, customer data and API integrations. My technical work includes hands-on coding and AI-assisted development to build, integrate and improve those systems.';
+    lede.innerHTML = `
+      <span class="lede-line">15+ years building and growing digital products through organic acquisition, conversion optimization, marketing automation and subscription business models.</span>
+      <span class="lede-line">I improve how prospects are <strong>acquired, nurtured, converted and retained</strong> by connecting web experiences, CMS and CRM systems, automation, analytics, customer data and APIs — backed by <strong>hands-on coding and AI-assisted development</strong>.</span>
+    `;
   }
 }
 
@@ -167,8 +170,8 @@ function updateRail() {
   const rect = railSection.getBoundingClientRect();
   const vh = window.innerHeight;
 
-  // Start after the section has meaningfully entered and finish only after it is mostly past.
-  const raw = (vh * 0.72 - rect.top) / (vh * 0.95 + rect.height);
+  // Start later and finish later so the first and last cards both get readable dwell time.
+  const raw = (vh * 0.68 - rect.top) / (vh * 1.12 + rect.height);
   const progress = Math.max(0, Math.min(1, raw));
   const eased = progress * progress * (3 - 2 * progress);
   const maxShift = Math.max(0, railTrack.scrollWidth - railViewport.clientWidth);
@@ -224,7 +227,6 @@ function updateActiveProject() {
     else break;
   }
 
-  // Before the first project crosses the line, explicitly keep Braintoon Web active.
   setActiveProject(current.dataset.project);
 }
 
