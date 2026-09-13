@@ -1,50 +1,75 @@
-import { animate, inView, stagger } from 'https://cdn.jsdelivr.net/npm/motion/+esm';
+const year = document.getElementById('year');
+if (year) year.textContent = new Date().getFullYear();
 
-document.getElementById('year').textContent = new Date().getFullYear();
-
-const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+// Load the visual refinements as a separate layer so the base stylesheet remains stable.
+if (!document.querySelector('link[href="css/refinements.css"]')) {
+  const refinements = document.createElement('link');
+  refinements.rel = 'stylesheet';
+  refinements.href = 'css/refinements.css';
+  document.head.appendChild(refinements);
+}
 
 function initIcons() {
   if (window.lucide?.createIcons) {
     window.lucide.createIcons({ attrs: { 'aria-hidden': 'true' } });
   } else {
-    window.setTimeout(initIcons, 80);
+    window.setTimeout(initIcons, 100);
   }
 }
 
 initIcons();
 
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function animateIn(element, delay = 0) {
+  if (!element || reducedMotion || typeof element.animate !== 'function') return;
+  element.animate(
+    [
+      { opacity: 0.72, transform: 'translateY(12px)' },
+      { opacity: 1, transform: 'translateY(0)' }
+    ],
+    {
+      duration: 460,
+      delay,
+      easing: 'cubic-bezier(.22,1,.36,1)',
+      fill: 'none'
+    }
+  );
+}
+
 if (!reducedMotion) {
-  document.documentElement.classList.add('motion-ready');
+  // Animate what is already visible on first paint, but never hide content in CSS.
+  document.querySelectorAll('[data-motion="hero"] > *').forEach((el, i) => animateIn(el, i * 65));
+  document.querySelectorAll('[data-motion="metrics"] .metric').forEach((el, i) => animateIn(el, 160 + i * 55));
 
-  const heroParts = document.querySelectorAll('[data-motion="hero"] > *');
-  if (heroParts.length) {
-    animate(heroParts, { opacity: [0, 1], y: [18, 0] }, { duration: .65, delay: stagger(.075), ease: [0.22, 1, 0.36, 1] });
+  // Progressive enhancement: if IntersectionObserver fails or is unavailable,
+  // every section remains fully visible because visibility is never JS-dependent.
+  if ('IntersectionObserver' in window) {
+    const seen = new WeakSet();
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting || seen.has(entry.target)) return;
+        seen.add(entry.target);
+
+        const target = entry.target;
+        const staggerChildren = target.matches('.lane-grid, .gallery, .phone-gallery, .system-flow, .gtm-flow')
+          ? Array.from(target.children).filter((el) => !el.matches('b'))
+          : [];
+
+        if (staggerChildren.length) {
+          staggerChildren.forEach((el, i) => animateIn(el, i * 45));
+        } else {
+          animateIn(target);
+        }
+
+        observer.unobserve(target);
+      });
+    }, {
+      threshold: 0.08,
+      rootMargin: '0px 0px -6% 0px'
+    });
+
+    document.querySelectorAll('[data-reveal], .lane-grid, .gallery, .phone-gallery, .system-flow, .gtm-flow')
+      .forEach((el) => observer.observe(el));
   }
-
-  const metrics = document.querySelectorAll('[data-motion="metrics"] .metric');
-  if (metrics.length) {
-    animate(metrics, { opacity: [0, 1], x: [14, 0] }, { duration: .5, delay: stagger(.07, { startDelay: .2 }), ease: [0.22, 1, 0.36, 1] });
-  }
-
-  const lanes = document.querySelectorAll('.lane-card');
-  if (lanes.length) {
-    inView('.lane-grid', () => {
-      animate(lanes, { opacity: [0, 1], y: [12, 0] }, { duration: .45, delay: stagger(.055), ease: 'ease-out' });
-    }, { amount: .25 });
-  }
-
-  document.querySelectorAll('[data-reveal]').forEach((section) => {
-    inView(section, () => {
-      animate(section, { opacity: [0, 1], y: [18, 0] }, { duration: .58, ease: [0.22, 1, 0.36, 1] });
-    }, { amount: .08 });
-  });
-
-  document.querySelectorAll('.gallery, .phone-gallery, .system-flow, .gtm-flow').forEach((group) => {
-    const children = Array.from(group.children).filter((el) => !el.matches('b'));
-    if (!children.length) return;
-    inView(group, () => {
-      animate(children, { opacity: [0, 1], y: [14, 0] }, { duration: .48, delay: stagger(.05), ease: 'ease-out' });
-    }, { amount: .15 });
-  });
 }
