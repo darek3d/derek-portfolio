@@ -10,6 +10,7 @@ function ensureStylesheet(href) {
 }
 
 ensureStylesheet('css/polish-pass.css');
+ensureStylesheet('css/hero-proof-band.css');
 
 function initIcons(attempt = 0) {
   if (window.lucide?.createIcons) {
@@ -47,7 +48,7 @@ function enhanceHeroIdentity() {
   copy.className = 'hero-identity-copy';
   copy.innerHTML = `
     <strong>Derek Wydra</strong>
-    <span>Oshawa, Ontario</span>
+    <span>Ontario, Canada</span>
     <a href="mailto:derekwydra@gmail.com">derekwydra@gmail.com</a>
   `;
 
@@ -58,8 +59,70 @@ function enhanceHeroIdentity() {
   if (heroMeta) heroMeta.hidden = true;
 }
 
+function refreshHeroCopy() {
+  const headline = document.querySelector('.hero-copy h1');
+  const lede = document.querySelector('.hero-lede');
+
+  if (headline) headline.textContent = 'I build digital growth systems that turn attention into customers.';
+
+  if (lede) {
+    lede.textContent = '15+ years building and growing digital products through organic acquisition, conversion optimization, marketing automation and subscription business models. I work across the customer journey to improve how prospects are acquired, nurtured, converted and retained — connecting web experiences, CMS and CRM systems, workflow automation, analytics, customer data and API integrations. My technical work includes hands-on coding and AI-assisted development to build, integrate and improve those systems.';
+  }
+}
+
+function buildResultsBand() {
+  const hero = document.querySelector('.hero');
+  const existing = document.querySelector('.results-band');
+  if (!hero || existing) return;
+
+  const section = document.createElement('section');
+  section.className = 'results-band';
+  section.setAttribute('aria-label', 'Selected results');
+  section.innerHTML = `
+    <div class="shell">
+      <div class="results-band-header">
+        <p class="eyebrow">Selected results</p>
+        <p>Evidence across acquisition, conversion and customer lifecycle work.</p>
+      </div>
+      <div class="results-grid">
+        <article class="result-card">
+          <div class="result-card-icon"><i data-lucide="search-check" aria-hidden="true"></i></div>
+          <span class="result-card-kicker">Organic acquisition</span>
+          <strong>44K–49K</strong>
+          <p class="result-card-description">Monthly Google organic clicks at peak.</p>
+          <div class="result-card-tags">SEO · Search Console · Ahrefs</div>
+        </article>
+        <article class="result-card">
+          <div class="result-card-icon"><i data-lucide="trending-up" aria-hidden="true"></i></div>
+          <span class="result-card-kicker">Conversion optimization</span>
+          <strong>+62%</strong>
+          <p class="result-card-description">Email opt-in lift in one CRO experiment.</p>
+          <div class="result-card-tags">CRO · Funnel testing · Analytics</div>
+        </article>
+        <article class="result-card">
+          <div class="result-card-icon"><i data-lucide="users" aria-hidden="true"></i></div>
+          <span class="result-card-kicker">Customer lifecycle</span>
+          <strong>3–5K</strong>
+          <p class="result-card-description">Paying customers supported across earlier digital products.</p>
+          <div class="result-card-tags">Email · Lifecycle · Payments</div>
+        </article>
+      </div>
+    </div>
+  `;
+
+  hero.insertAdjacentElement('afterend', section);
+}
+
+function removeOldHeroSide() {
+  const heroSide = document.querySelector('.hero-side');
+  if (heroSide) heroSide.remove();
+}
+
 enhanceTopNav();
+refreshHeroCopy();
 enhanceHeroIdentity();
+buildResultsBand();
+removeOldHeroSide();
 initIcons();
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -74,7 +137,7 @@ function animateIn(el, delay = 0) {
 
 if (!reducedMotion) {
   document.querySelectorAll('[data-motion="hero"] > *').forEach((el, i) => animateIn(el, i * 50));
-  document.querySelectorAll('[data-motion="metrics"] > *').forEach((el, i) => animateIn(el, 100 + i * 45));
+  document.querySelectorAll('.result-card').forEach((el, i) => animateIn(el, 90 + i * 55));
 
   if ('IntersectionObserver' in window) {
     const revealed = new WeakSet();
