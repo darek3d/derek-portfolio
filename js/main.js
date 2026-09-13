@@ -68,7 +68,7 @@ function refreshHeroCopy() {
   if (lede) {
     lede.innerHTML = `
       <span class="lede-line">15+ years building and growing digital products through organic acquisition, conversion optimization, marketing automation and subscription business models.</span>
-      <span class="lede-line">I improve how prospects are <strong>acquired, nurtured, converted and retained</strong> by connecting web experiences, CMS and CRM systems, automation, analytics, customer data and APIs — backed by <strong>hands-on coding and AI-assisted development</strong>.</span>
+      <span class="lede-line">I improve how prospects are <strong>acquired, nurtured, converted and retained</strong> by connecting web experiences, CMS and CRM systems, AI automation, analytics, customer data and APIs, with hands-on development experience when custom solutions are needed.</span>
     `;
   }
 }
