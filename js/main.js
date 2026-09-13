@@ -20,13 +20,29 @@ function initIcons(attempt = 0) {
   if (attempt < 20) setTimeout(() => initIcons(attempt + 1), 120);
 }
 
+function getContactEmail() {
+  const local = ['derek', 'wydra'].join('');
+  const domain = ['gmail', 'com'].join('.');
+  return `${local}@${domain}`;
+}
+
+function hydrateEmailLinks() {
+  const email = getContactEmail();
+  document.querySelectorAll('[data-email-link]').forEach((link) => {
+    link.href = `mailto:${email}`;
+  });
+  document.querySelectorAll('[data-email-text]').forEach((el) => {
+    el.textContent = email;
+  });
+}
+
 function enhanceTopNav() {
   const links = [...document.querySelectorAll('.site-nav a')];
   links.forEach((link) => {
     const href = link.getAttribute('href');
     if (href === '#work') link.textContent = 'Projects';
     if (href === '#systems') link.textContent = 'Systems';
-    if (href?.startsWith('mailto:')) {
+    if (link.matches('[data-email-link]')) {
       link.textContent = 'Email me';
       link.classList.add('nav-cta');
     }
@@ -49,7 +65,7 @@ function enhanceHeroIdentity() {
   copy.innerHTML = `
     <strong>Derek Wydra</strong>
     <span>Ontario, Canada</span>
-    <a href="mailto:derekwydra@gmail.com">derekwydra@gmail.com</a>
+    <a href="#" data-email-link data-email-text aria-label="Email Derek"></a>
   `;
 
   identity.append(photoClone, copy);
@@ -125,6 +141,7 @@ enhanceTopNav();
 refreshHeroCopy();
 enhanceHeroIdentity();
 buildResultsBand();
+hydrateEmailLinks();
 removeOldHeroSide();
 initIcons();
 
