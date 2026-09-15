@@ -143,14 +143,14 @@ h1 {
   color: var(--accent);
 }
 
-/* Capability rail: real lead-in/lead-out space, gentler movement and better pacing. */
+/* Capability rail: align the first card with the site's normal content gutter. */
 .capability-rail-section {
   padding-top: 24px !important;
   padding-bottom: 26px !important;
 }
 .capability-rail-track::before {
   content: "";
-  flex: 0 0 clamp(70px, 14vw, 210px);
+  flex: 0 0 max(20px, calc((100vw - 1180px) / 2));
 }
 .capability-rail-track::after {
   content: "";
@@ -201,7 +201,7 @@ h1 {
     grid-column: 2;
   }
   .capability-rail-track::before {
-    flex-basis: 22px;
+    flex-basis: 14px;
   }
   .capability-rail-track::after {
     flex-basis: 86px;
