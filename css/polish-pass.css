@@ -168,17 +168,32 @@ h1 {
 }
 .rail-card svg { margin-bottom: 30px !important; }
 
-/* Braintoon Web: use the three real product screenshots. */
+/* Braintoon Web: screenshots are product evidence, not decorative backgrounds.
+   Preserve the full 16:9 capture and keep all labels outside the image. */
+.gallery-web {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 58px 18px !important;
+  align-items: start;
+}
 .gallery-web .shot {
-  background-color: #eef2ef;
+  aspect-ratio: 16 / 9;
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 0 !important;
+  overflow: visible;
+  background-color: #fff;
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center top;
+  background-size: contain;
+  background-position: center center;
+  border-radius: 16px;
+  display: block;
 }
 .gallery-web .shot::before {
   display: none !important;
 }
 .gallery-web .shot:nth-child(1) {
+  grid-column: 1 / -1;
+  grid-row: auto !important;
   background-image: url('../assets/braintoon-web/braintoon-web-home.png');
 }
 .gallery-web .shot:nth-child(2) {
@@ -190,12 +205,28 @@ h1 {
 .gallery-web .shot:nth-child(4) {
   background-image: url('../assets/braintoon-web/braintoon-web-paywall.png');
 }
-.gallery-web .shot-label {
-  position: relative;
-  z-index: 2;
-}
 .gallery-web .browser-bar {
+  display: none !important;
+}
+.gallery-web .shot-label {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 2px;
   z-index: 2;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+.gallery-web .shot-label span {
+  display: none;
+}
+.gallery-web .shot-label strong {
+  margin: 0;
+  font-size: .92rem;
+  font-weight: 720;
 }
 
 /* Project nav active state: slightly quieter and easier to scan. */
@@ -213,6 +244,13 @@ h1 {
   }
   .hero-result-card {
     grid-template-columns: 38px 100px 1fr;
+  }
+  .gallery-web {
+    grid-template-columns: 1fr !important;
+    gap: 56px !important;
+  }
+  .gallery-web .shot:nth-child(1) {
+    grid-column: auto;
   }
 }
 
