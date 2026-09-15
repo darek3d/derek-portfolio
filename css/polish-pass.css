@@ -168,6 +168,36 @@ h1 {
 }
 .rail-card svg { margin-bottom: 30px !important; }
 
+/* Braintoon Web: use the three real product screenshots. */
+.gallery-web .shot {
+  background-color: #eef2ef;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+}
+.gallery-web .shot::before {
+  display: none !important;
+}
+.gallery-web .shot:nth-child(1) {
+  background-image: url('../assets/braintoon-web/braintoon-web-home.png');
+}
+.gallery-web .shot:nth-child(2) {
+  background-image: url('../assets/braintoon-web/braintoon-web-book-detail.png');
+}
+.gallery-web .shot:nth-child(3) {
+  display: none;
+}
+.gallery-web .shot:nth-child(4) {
+  background-image: url('../assets/braintoon-web/braintoon-web-paywall.png');
+}
+.gallery-web .shot-label {
+  position: relative;
+  z-index: 2;
+}
+.gallery-web .browser-bar {
+  z-index: 2;
+}
+
 /* Project nav active state: slightly quieter and easier to scan. */
 .project-nav a.is-active {
   box-shadow: 0 5px 16px rgba(36,87,255,.14) !important;
