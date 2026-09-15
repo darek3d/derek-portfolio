@@ -108,7 +108,7 @@ function buildResultsBand() {
           <div class="result-card-icon"><i data-lucide="search-check" aria-hidden="true"></i></div>
           <span class="result-card-kicker">Organic acquisition</span>
           <strong>44K–49K</strong>
-          <p class="result-card-description">Monthly Google organic clicks at peak.</p>
+          <p class="result-card-description">Monthly Google organic clicks at peak on a search-driven web property.</p>
           <div class="result-card-tags">SEO · Search Console · Ahrefs</div>
         </article>
         <article class="result-card">
@@ -121,7 +121,7 @@ function buildResultsBand() {
         <article class="result-card">
           <div class="result-card-icon"><i data-lucide="users" aria-hidden="true"></i></div>
           <span class="result-card-kicker">Customer lifecycle</span>
-          <strong>3–5K</strong>
+          <strong>4–5K</strong>
           <p class="result-card-description">Paying customers supported across earlier digital products.</p>
           <div class="result-card-tags">Email · Lifecycle · Payments</div>
         </article>
@@ -173,7 +173,7 @@ if (!reducedMotion) {
   }
 }
 
-/* Capability rail: leave a comfortable dwell at both ends and move more gently. */
+/* Capability rail: align the first card to the content shell, start movement a little later, and finish while the last card is still comfortably readable. */
 const railSection = document.getElementById('capability-rail');
 const railViewport = railSection?.querySelector('.capability-rail-viewport');
 const railTrack = railSection?.querySelector('.capability-rail-track');
@@ -187,8 +187,11 @@ function updateRail() {
   const rect = railSection.getBoundingClientRect();
   const vh = window.innerHeight;
 
-  // Start later and finish later so the first and last cards both get readable dwell time.
-  const raw = (vh * 0.68 - rect.top) / (vh * 1.12 + rect.height);
+  // Begin once the rail has moved well into the viewport, then complete before
+  // the section reaches the top so card 06 remains on-screen for a readable dwell.
+  const startLine = vh * 0.58;
+  const finishLine = vh * 0.12;
+  const raw = (startLine - rect.top) / (startLine - finishLine);
   const progress = Math.max(0, Math.min(1, raw));
   const eased = progress * progress * (3 - 2 * progress);
   const maxShift = Math.max(0, railTrack.scrollWidth - railViewport.clientWidth);
