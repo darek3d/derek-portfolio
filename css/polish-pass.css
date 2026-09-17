@@ -169,14 +169,14 @@ h1 {
 .rail-card svg { margin-bottom: 30px !important; }
 
 /* Braintoon Web: screenshots are product evidence, not decorative backgrounds.
-   Preserve the full 16:9 capture and keep all labels outside the image. */
+   Preserve the full 1440x900 (16:10) capture and keep all labels outside the image. */
 .gallery-web {
   grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   gap: 58px 18px !important;
   align-items: start;
 }
 .gallery-web .shot {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 10;
   min-height: 0 !important;
   height: auto !important;
   padding: 0 !important;
@@ -229,14 +229,14 @@ h1 {
   font-weight: 720;
 }
 
-/* Growth Summary: mirror the clean 16:9 case-study treatment used above. */
+/* Growth Summary: mirror the clean 16:10 case-study treatment used above. */
 .gallery-growth {
   grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   gap: 58px 18px !important;
   align-items: start;
 }
 .gallery-growth .shot {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 10;
   min-height: 0 !important;
   height: auto !important;
   padding: 0 !important;
@@ -292,7 +292,7 @@ h1 {
   gap: 34px !important;
 }
 #ai-book-finder .shot-tool {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 10;
   min-height: 0 !important;
   height: auto !important;
   padding: 0 !important;
