@@ -173,7 +173,7 @@ if (!reducedMotion) {
   }
 }
 
-/* Capability rail: align the first card to the content shell, start movement a little later, and finish while the last card is still comfortably readable. */
+/* Capability rail: align the first card to the content shell, start movement a little later, and finish with card 06 aligned to the normal right content gutter. */
 const railSection = document.getElementById('capability-rail');
 const railViewport = railSection?.querySelector('.capability-rail-viewport');
 const railTrack = railSection?.querySelector('.capability-rail-track');
@@ -194,7 +194,12 @@ function updateRail() {
   const raw = (startLine - rect.top) / (startLine - finishLine);
   const progress = Math.max(0, Math.min(1, raw));
   const eased = progress * progress * (3 - 2 * progress);
-  const maxShift = Math.max(0, railTrack.scrollWidth - railViewport.clientWidth);
+
+  const cards = railTrack.querySelectorAll('.rail-card');
+  const lastCard = cards[cards.length - 1];
+  const contentGutter = Math.max(20, (window.innerWidth - 1180) / 2);
+  const lastCardRight = lastCard ? lastCard.offsetLeft + lastCard.offsetWidth : railTrack.scrollWidth;
+  const maxShift = Math.max(0, lastCardRight - (railViewport.clientWidth - contentGutter));
 
   railTrack.style.transform = `translate3d(${-maxShift * eased}px,0,0)`;
   if (progressBar) progressBar.style.transform = `scaleX(${progress})`;
