@@ -229,6 +229,109 @@ h1 {
   font-weight: 720;
 }
 
+/* Growth Summary: mirror the clean 16:9 case-study treatment used above. */
+.gallery-growth {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 58px 18px !important;
+  align-items: start;
+}
+.gallery-growth .shot {
+  aspect-ratio: 16 / 9;
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 0 !important;
+  overflow: visible;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  border-radius: 16px;
+  display: block;
+}
+.gallery-growth .shot::before {
+  display: none !important;
+}
+.gallery-growth .shot:nth-child(1) {
+  grid-column: 1 / -1;
+  grid-row: auto !important;
+  background-image: url('../assets/growth-summary/growth-summary-book-detail.png');
+}
+.gallery-growth .shot:nth-child(2) {
+  background-image: url('../assets/growth-summary/growth-summary-category.png');
+}
+.gallery-growth .shot:nth-child(3) {
+  background-image: url('../assets/growth-summary/growth-summary-quiz-block.png');
+}
+.gallery-growth .browser-bar {
+  display: none !important;
+}
+.gallery-growth .shot-label {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 2px;
+  z-index: 2;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+.gallery-growth .shot-label span {
+  display: none;
+}
+.gallery-growth .shot-label strong {
+  margin: 0;
+  font-size: .92rem;
+  font-weight: 720;
+}
+
+/* AI Book Finder: place the real product screenshot beneath the case-study copy. */
+#ai-book-finder .book-finder-grid {
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: 34px !important;
+}
+#ai-book-finder .shot-tool {
+  aspect-ratio: 16 / 9;
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 0 !important;
+  overflow: visible;
+  background-color: #fff;
+  background-image: url('../assets/ai-book-finder/ai-book-finder.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  border-radius: 16px;
+  display: block;
+}
+#ai-book-finder .shot-tool::before {
+  display: none !important;
+}
+#ai-book-finder .shot-tool .browser-bar {
+  display: none !important;
+}
+#ai-book-finder .shot-tool .shot-label {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 2px;
+  z-index: 2;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+#ai-book-finder .shot-tool .shot-label span {
+  display: none;
+}
+#ai-book-finder .shot-tool .shot-label strong {
+  margin: 0;
+  font-size: .92rem;
+  font-weight: 720;
+}
+
 /* Project nav active state: slightly quieter and easier to scan. */
 .project-nav a.is-active {
   box-shadow: 0 5px 16px rgba(36,87,255,.14) !important;
@@ -245,11 +348,13 @@ h1 {
   .hero-result-card {
     grid-template-columns: 38px 100px 1fr;
   }
-  .gallery-web {
+  .gallery-web,
+  .gallery-growth {
     grid-template-columns: 1fr !important;
     gap: 56px !important;
   }
-  .gallery-web .shot:nth-child(1) {
+  .gallery-web .shot:nth-child(1),
+  .gallery-growth .shot:nth-child(1) {
     grid-column: auto;
   }
 }
