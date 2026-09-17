@@ -137,12 +137,32 @@ function removeOldHeroSide() {
   if (heroSide) heroSide.remove();
 }
 
+function hideFutureBusinessProject() {
+  const businessSection = document.getElementById('braintoon-business');
+  const businessLink = document.querySelector('[data-project-link="braintoon-business"]');
+  businessSection?.remove();
+  businessLink?.remove();
+
+  const visibleProjects = [
+    ['growth-summary', '03'],
+    ['ai-book-finder', '04'],
+  ];
+
+  visibleProjects.forEach(([id, number]) => {
+    const navLink = document.querySelector(`[data-project-link="${id}"] span`);
+    const projectNumber = document.querySelector(`#${id} .project-number`);
+    if (navLink) navLink.textContent = number;
+    if (projectNumber) projectNumber.textContent = number;
+  });
+}
+
 enhanceTopNav();
 refreshHeroCopy();
 enhanceHeroIdentity();
 buildResultsBand();
 hydrateEmailLinks();
 removeOldHeroSide();
+hideFutureBusinessProject();
 initIcons();
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
